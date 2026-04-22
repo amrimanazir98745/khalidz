@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio | Iyoob Muhammathu Aflal</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+        rel="stylesheet"
+    />
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Custom Blue Gradient for Navbar and Header */
+        .header-bg {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%); /* Deep Blue to Bright Blue */
+        }
+        .highlight-color {
+            color: #1e3a8a; /* Deep Blue for headings/accents */
+        }
+        .highlight-border {
+            border-color: #3b82f6; /* Bright Blue for underlines */
+        }
+        .project-card:hover {
+             transform: translateY(-5px); /* Lift effect on projects */
+             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+        #typed-text {
+            border-right: 2px solid #3b82f6; /* Bright Blue cursor */
+            white-space: normal;
+            overflow-wrap: break-word;
+            display: inline-block;
+            max-width: 100%;
+            animation: blink 0.75s step-end infinite;
+            font-size: 1.125rem;
+            line-height: 1.5;
+            margin: 0 auto;
+            text-align: center;
+            min-height: 3rem;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="fixed top-0 left-0 right-0 header-bg shadow-xl z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <a href="#home" class="text-white font-bold text-2xl font-montserrat select-none">M Aflal</a>
+            <nav>
+                <ul id="nav-links" class="hidden md:flex space-x-10 text-white font-semibold tracking-wide">
+                    <li><a href="#home" class="hover:text-blue-300 transition">Home</a></li>
+                    <li><a href="#about-me" class="hover:text-blue-300 transition">About</a></li>
+                    <li><a href="#projects" class="hover:text-blue-300 transition">Projects</a></li>
+                    <li><a href="#skills" class="hover:text-blue-300 transition">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-blue-300 transition">Contact</a></li>
+                </ul>
+                <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden text-white text-3xl focus:outline-none">&#9776;</button>
+            </nav>
+        </div>
+
+        <ul id="mobile-menu" class="md:hidden header-bg hidden flex-col text-white font-semibold px-6 py-4 space-y-4">
+            <li><a href="#home" class="block hover:text-blue-300 transition">Home</a></li>
+            <li><a href="#about-me" class="block hover:text-blue-300 transition">About</a></li>
+            <li><a href="#projects" class="block hover:text-blue-300 transition">Projects</a></li>
+            <li><a href="#skills" class="block hover:text-blue-300 transition">Skills</a></li>
+            <li><a href="#contact" class="block hover:text-blue-300 transition">Contact</a></li>
+        </ul>
+    </header>
+
+    <main class="pt-28 max-w-6xl mx-auto px-6 pb-16">
+
+        <section id="home" class="text-center mb-24" data-aos="fade-down" data-aos-duration="1000">
+            <img src="img/your-photo.jpg" alt="Photo of Iyoob Muhammathu Aflal" class="mx-auto rounded-full w-44 h-44 object-cover border-8 border-blue-500 shadow-xl mb-6 transform hover:scale-105 transition duration-300" loading="lazy" data-aos="zoom-in" data-aos-delay="300" />
+            <h1 class="text-5xl font-bold highlight-color mb-4 font-montserrat" data-aos="fade-up" data-aos-delay="500">Hi, I'm Iyoob Muhammathu Aflal</h1>
+            <p id="typed-text" aria-live="polite" class="text-gray-700 text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="700"></p>
+        </section>
+
+        <section id="about-me" class="bg-white rounded-lg shadow-2xl p-10 mb-24" data-aos="fade-right" data-aos-duration="1000">
+            <h2 class="text-4xl font-bold highlight-color border-b-4 highlight-border pb-2 mb-8 font-montserrat">About Me</h2>
+            <p class="mb-8 text-gray-700 leading-relaxed text-lg max-w-4xl" data-aos="fade-up" data-aos-delay="200">
+                I am a passionate web developer skilled in MERN stack, PHP, MySQL, HTML, CSS, and modern CSS frameworks like Tailwind CSS and Bootstrap. I build clean, responsive, and user-friendly websites and web applications, focused on performance and usability. Continuously learning new technologies to deliver effective solutions.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-blue-600 mb-6 font-montserrat" data-aos="fade-up" data-aos-delay="300">Experience</h3>
+            <ul class="space-y-8 text-gray-800 max-w-4xl mx-auto">
+                <li class="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-semibold text-xl text-blue-700">Web Developer</h4>
+                    <p class="italic mb-2">Tech Codz — 2025 – Present</p>
+                    <p class="italic mb-2">Company Website - <a href="https://techcodz.com/" class="text-blue-500 hover:text-blue-700">Techcodz.com</a></p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Developing modern web applications using MERN stack and PHP.</li>
+                        <li>Building responsive UI and managing backend APIs.</li>
+                        <li>Worked on client projects including e-commerce and POS systems.</li>
+                        <li>Location: Sri Lanka</li>
+                    </ul>
+                </li>
+
+
+                <li class="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <h4 class="font-semibold text-xl text-blue-700">Computer Operator and Designer</h4>
+                    <p class="italic mb-2">Divisional Secretariat, Eravur — Jan 2023 – Jul 2023</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Worked 6 months as computer operator and designer.</li>
+                        <li>Designed official flyers and documentation using design tools.</li>
+                        <li>Managed digital records and supported internal communications.</li>
+                    </ul>
+                </li>
+                <!-- Nazeeha Construction -->
+    <li class="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm hover:shadow-lg transition">
+        <h4 class="font-semibold text-xl text-blue-700">
+            Computer Assistant & Designer
+        </h4>
+        <p class="italic mb-2">Nazeeha Construction, Eravur — Apr 2020 – Mar 2022</p>
+
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+            <li>Prepared construction proposals, reports, and cost estimation documents using MS Word and Excel.</li>
+            <li>Designed marketing and branding materials using Photoshop and Canva.</li>
+            <li>Maintained well-organized digital file systems and documentation workflows.</li>
+            <li>Assisted communication between engineering teams and external stakeholders.</li>
+        </ul>
+    </li>
+            </ul>
+
+            <h3 class="text-3xl font-semibold text-blue-600 mt-16 mb-6 font-montserrat" data-aos="fade-up" data-aos-delay="600">Education</h3>
+            <ul class="space-y-6 text-gray-800 max-w-4xl mx-auto">
+                <li class="bg-gray-100 border-l-4 border-blue-500 rounded-md p-5 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="700">
+                    <h4 class="font-semibold text-xl">Higher National Diploma In Information Technology (Reading)</h4>
+                    <p class="italic">SLIATE-ATI, Batticaloa — 2023</p>
+                </li>
+                <li class="bg-gray-100 border-l-4 border-blue-500 rounded-md p-5 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="800">
+                    <h4 class="font-semibold text-xl">National Vocational Qualification in Information Technology (Level-04)</h4>
+                    <p class="italic">Vocational Training Authority - Sri Lanka, Kattankudy — 2022</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects" class="mb-24" data-aos="fade-left" data-aos-duration="1000">
+            <h2 class="text-4xl font-bold highlight-color border-b-4 highlight-border pb-3 mb-10 font-montserrat">Projects</h2>
+            <div class="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col project-card transition duration-300" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="img/taxi.jpg" alt="Drive Eastern Ride Booking System" class="h-52 w-full object-cover" loading="lazy"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Drive Eastern Ride Booking System</h3>
+                        <p class="text-gray-700 flex-grow mb-6">
+                            Real-time ride-booking web application with passenger and driver dashboards, live driver location (Leaflet.js), booking history, and secure authentication.
+                        </p>
+                        <a href="https://github.com/AflalMohamed/DriveEastern" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline flex items-center">View Project <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col project-card transition duration-300" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="img/water.jpg" alt="Water Delivery Service and Sell System" class="h-52 w-full object-cover" loading="lazy"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Water Delivery Service and Sell System</h3>
+                        <p class="text-gray-700 flex-grow mb-6">
+                            Online platform for customers to browse, order, and get home delivery of water products.
+                        </p>
+                        <a href="https://github.com/AflalMohamed/Water-Delivery" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline flex items-center">View Project <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col project-card transition duration-300" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="img/pos.png" alt="Point Of Sale (POS) System" class="h-52 w-full object-cover" loading="lazy"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Point Of Sale (POS) System</h3>
+                        <p class="text-gray-700 flex-grow mb-6">
+                            PHP-based POS system handling product inventory, billing, payment processing, and receipt generation.
+                        </p>
+                        <a href="https://github.com/AflalMohamed/pos" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline flex items-center">View Project <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col project-card transition duration-300" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="img/rent.jpg" alt="Vehicle Rental Website" class="h-52 w-full object-cover" loading="lazy"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Vehicle Rental System</h3>
+                        <p class="text-gray-700 flex-grow mb-6">
+                            Modern PHP & Tailwind CSS rental platform with dynamic booking, WhatsApp notifications, and responsive design.
+                        </p>
+                        <a href="https://github.com/AflalMohamed/EvrRental" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline flex items-center">View Project <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col project-card transition duration-300" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="img/gift.webp" alt="Gift Shop System" class="h-52 w-full object-cover" loading="lazy"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Gift Shop Website</h3>
+                        <p class="text-gray-700 flex-grow mb-6">
+                            Fully functional PHP-based e-commerce website for gift products with dynamic product listing, cart system, and user-friendly design.
+                        </p>
+                        <a href="https://nskgifts.online/" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline flex items-center">View Project <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="skills" class="bg-white rounded-lg shadow-2xl p-10 mb-24" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-4xl font-bold highlight-color border-b-4 highlight-border pb-3 mb-10 font-montserrat">Skills</h2>
+            <div class="max-w-md mx-auto space-y-8">
+                <div data-aos="fade-right" data-aos-delay="100">
+                    <label class="block font-semibold mb-3 text-lg">HTML & CSS</label>
+                    <div class="w-full bg-blue-100 rounded-full h-6">
+                        <div class="bg-blue-600 h-6 rounded-full transition-width duration-700" style="width: 98%"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-right" data-aos-delay="200">
+                    <label class="block font-semibold mb-3 text-lg">JavaScript</label>
+                    <div class="w-full bg-blue-100 rounded-full h-6">
+                        <div class="bg-blue-600 h-6 rounded-full transition-width duration-700" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-right" data-aos-delay="300">
+                    <label class="block font-semibold mb-3 text-lg">PHP & MySQL</label>
+                    <div class="w-full bg-blue-100 rounded-full h-6">
+                        <div class="bg-blue-600 h-6 rounded-full transition-width duration-700" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-right" data-aos-delay="400">
+                    <label class="block font-semibold mb-3 text-lg">MERN Stack</label>
+                    <div class="w-full bg-blue-100 rounded-full h-6">
+                        <div class="bg-blue-600 h-6 rounded-full transition-width duration-700" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center max-w-xl mx-auto mb-24" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-4xl font-bold highlight-color border-b-4 highlight-border pb-3 mb-8 font-montserrat">Contact</h2>
+            <p class="mb-8 text-gray-700 text-lg">Feel free to reach out to me through any of the platforms below:</p>
+            <div class="flex justify-center gap-10 text-blue-600 text-4xl">
+                <a href="https://www.linkedin.com/in/muhammathu-aflal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" class="hover:text-blue-800 transition transform hover:scale-110" data-aos="zoom-in" data-aos-delay="100"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/AflalMohamed" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" class="hover:text-gray-800 transition transform hover:scale-110" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-github"></i></a>
+                <a href="mailto:Mohamedaflal154@gmail.com" aria-label="Email" title="Email" class="hover:text-blue-800 transition transform hover:scale-110" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/+94775571573" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp" title="Whatsapp" class="hover:text-green-600 transition transform hover:scale-110" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-whatsapp"></i></a>
+                <a href="AflalCV.pdf" download aria-label="Download CV" title="Download CV" class="hover:text-red-600 transition transform hover:scale-110" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-file-arrow-down"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="header-bg text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm md:text-base">&copy; 2025 Iyoob Muhammathu Aflal. All rights reserved.</p>
+            <div class="flex gap-6 text-xl mt-4 md:mt-0">
+                <a href="https://www.linkedin.com/in/muhammathu-aflal" target="_blank"><i class="fab fa-linkedin hover:text-blue-300 transition"></i></a>
+                <a href="https://github.com/AflalMohamed" target="_blank"><i class="fab fa-github hover:text-blue-300 transition"></i></a>
+                <a href="mailto:Mohamedaflal154@gmail.com"><i class="fas fa-envelope hover:text-blue-300 transition"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Only run animation once per element
+            duration: 800, // Duration of the animation
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Typed text effect
+        const typedText = document.getElementById('typed-text');
+        const words = ["Web Developer", "MERN Stack Developer", "PHP Developer", "UI Designer"];
+        let wordIndex = 0, letterIndex = 0;
+        let currentWord = "", isDeleting = false;
+
+        function type() {
+            if(wordIndex >= words.length) wordIndex = 0;
+            currentWord = words[wordIndex];
+            
+            let speed = isDeleting ? 50 : 150; // Typing speed and deleting speed
+
+            if(isDeleting) {
+                typedText.textContent = currentWord.substring(0, letterIndex--);
+                if(letterIndex < 0) { isDeleting = false; wordIndex++; speed = 500; } // Pause after deleting
+            } else {
+                typedText.textContent = currentWord.substring(0, letterIndex++);
+                if(letterIndex > currentWord.length) { isDeleting = true; letterIndex = currentWord.length; speed = 1500; } // Pause after typing
+            }
+            setTimeout(type, speed);
+        }
+        type();
+    </script>
+</body>
+</html>
