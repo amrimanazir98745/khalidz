@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_ëîé_1" data-name="‘ëîé_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.29 225.94">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #ff7262;
+      }
+
+      .cls-3 {
+        fill: #a259ff;
+      }
+
+      .cls-4 {
+        fill: #1abcfe;
+      }
+
+      .cls-5 {
+        fill: #f24e1e;
+      }
+
+      .cls-6 {
+        fill: #0acf83;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="232.29" height="225.94" rx="41.84" ry="41.84"/>
+  <g>
+    <path id="path0_fill" data-name="path0 fill" class="cls-6" d="M94.64,177.47c11.87,0,21.5-9.63,21.5-21.5v-21.5h-21.5c-11.87,0-21.5,9.63-21.5,21.5s9.63,21.5,21.5,21.5Z"/>
+    <path id="path1_fill" data-name="path1 fill" class="cls-3" d="M73.14,112.97c0-11.87,9.63-21.5,21.5-21.5h21.5v43h-21.5c-11.87,0-21.5-9.63-21.5-21.5Z"/>
+    <path id="path1_fill-2" data-name="path1 fill" class="cls-5" d="M73.14,69.97c0-11.87,9.63-21.5,21.5-21.5h21.5v43h-21.5c-11.87,0-21.5-9.63-21.5-21.5Z"/>
+    <path id="path2_fill" data-name="path2 fill" class="cls-2" d="M116.14,48.47h21.5c11.87,0,21.5,9.63,21.5,21.5s-9.63,21.5-21.5,21.5h-21.5v-43Z"/>
+    <path id="path3_fill" data-name="path3 fill" class="cls-4" d="M159.14,112.97c0,11.87-9.63,21.5-21.5,21.5s-21.5-9.63-21.5-21.5,9.63-21.5,21.5-21.5,21.5,9.63,21.5,21.5Z"/>
+  </g>
+</svg>

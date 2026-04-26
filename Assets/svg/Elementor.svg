@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_ëîé_1" data-name="‘ëîé_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 232.29 225.94">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-23.68" y1="-41.81" x2="305.68" y2="322.78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ed345e"/>
+      <stop offset="1" stop-color="#382c74"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-2" width="232.29" height="225.94" rx="41.84" ry="41.84"/>
+  <g>
+    <rect class="cls-1" x="106.22" y="142.28" width="58.93" height="19.54"/>
+    <rect class="cls-1" x="106.22" y="103.2" width="58.93" height="19.54"/>
+    <rect class="cls-1" x="106.22" y="64.13" width="58.93" height="19.54"/>
+    <rect class="cls-1" x="67.14" y="64.13" width="19.54" height="97.69"/>
+  </g>
+</svg>
