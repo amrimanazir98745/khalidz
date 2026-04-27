@@ -196,6 +196,13 @@
             display: inline-flex;
             align-items: center;
             line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.05);
         }
         
         .nav-logo img {
@@ -1691,9 +1698,9 @@
     <!-- NAV -->
     <nav id="navbar">
         <div class="nav-inner">
-            <div class="nav-logo">
+            <a href="#hero" class="nav-logo">
                 <img src="Assets/Logo.svg" alt="Khalid Zarook logo">
-            </div>
+            </a>
             <div class="nav-controls">
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
