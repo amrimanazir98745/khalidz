@@ -161,7 +161,7 @@
         }
         
         section {
-            padding: 110px 0;
+            padding: 60px 0;
         }
         /* ─── NAV ─── */
         
@@ -582,19 +582,54 @@
         /* ─── STATS ─── */
         
         .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 48px;
-            animation: fadeUp 0.9s 0.5s both;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            padding: 24px;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0), rgba(5, 8, 22, 0.85));
+            border-radius: 0 0 28px 28px;
         }
         
         .stat {
-            text-align: left;
+            border-radius: 14px;
+            padding: 16px 14px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 0.5s ease-out forwards;
+            transition: var(--transition);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat:hover {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(168, 85, 247, 0.12));
+            border-color: rgba(0, 229, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 229, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        
+        .stat:nth-child(1) {
+            animation-delay: 0.6s;
+        }
+        
+        .stat:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+        
+        .stat:nth-child(3) {
+            animation-delay: 1s;
         }
         
         .stat-num {
             font-family: 'Sora', sans-serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -604,7 +639,7 @@
         }
         
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--muted);
             margin-top: 4px;
             letter-spacing: 0.05em;
@@ -727,6 +762,11 @@
             font-size: 0.78rem;
             color: var(--muted);
             margin-top: 6px;
+        }
+        /* ─── ABOUT ─── */
+        
+        #about {
+            padding-top: 30px;
         }
         /* ─── SERVICES ─── */
         
@@ -1591,7 +1631,7 @@
         
         @media (max-width: 480px) {
             section {
-                padding: 70px 0;
+                padding: 40px 0;
             }
             nav {
                 top: 8px;
@@ -1609,7 +1649,18 @@
                 max-width: 160px;
             }
             .hero-stats {
-                gap: 20px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 14px;
+            }
+            .stat {
+                padding: 12px 10px;
+            }
+            .stat-num {
+                font-size: 1.2rem;
+            }
+            .stat-label {
+                font-size: 0.6rem;
             }
             .contact-cards {
                 grid-template-columns: 1fr 1fr;
@@ -1703,20 +1754,6 @@
                             <a href="#projects" class="btn-primary">View My Work</a>
                             <a href="#contact" class="btn-outline">Hire Me</a>
                         </div>
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <div class="stat-num">4+</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-num">50+</div>
-                                <div class="stat-label">Projects Done</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-num">30+</div>
-                                <div class="stat-label">Happy Clients</div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="hero-image-wrap">
@@ -1731,6 +1768,21 @@
                                 <div class="photo-placeholder" id="photo-placeholder" style="display:none;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                                     <span style="font-size:0.78rem;color:rgba(136,146,176,0.5);text-align:center;padding:0 24px;line-height:1.6;">Add your photo here<br><small>Set src in &lt;img id="hero-photo"&gt;</small></span>
+                                </div>
+                            </div>
+                            <!-- Stats Overlay -->
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <div class="stat-num">4+</div>
+                                    <div class="stat-label">Years Experience</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-num">50+</div>
+                                    <div class="stat-label">Projects Done</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-num">30+</div>
+                                    <div class="stat-label">Happy Clients</div>
                                 </div>
                             </div>
                         </div>
