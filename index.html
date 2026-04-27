@@ -1069,29 +1069,56 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-top: 10px;
+        margin-top: 16px;
     }
     .lang-item {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        transition: transform 0.3s ease;
+    }
+    .lang-item:hover {
+        transform: translateX(4px);
     }
     .lang-name {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text);
+        min-width: 70px;
+        flex-shrink: 0;
     }
     .lang-bar {
         flex: 1;
-        margin: 0 14px;
-        height: 4px;
-        background: var(--glass-border);
-        border-radius: 4px;
+        min-width: 120px;
+        height: 6px;
+        background: rgba(94, 179, 255, 0.15);
+        border-radius: 8px;
         overflow: hidden;
+        position: relative;
+    }
+    .lang-bar::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(94, 179, 255, 0.08);
+        border-radius: 8px;
     }
     .lang-fill {
         height: 100%;
-        border-radius: 4px;
-        background: var(--gradient);
+        border-radius: 8px;
+        background: linear-gradient(90deg, var(--cyan), var(--purple));
         transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: 0 0 12px rgba(94, 179, 255, 0.3);
+    }
+    .lang-level {
+        font-size: 0.85rem;
+        color: var(--muted);
+        min-width: 100px;
+        text-align: right;
+        flex-shrink: 0;
+        font-weight: 500;
+        letter-spacing: 0.3px;
     }
     .lang-level {
         font-size: 0.75rem;
@@ -1611,6 +1638,19 @@
         .services-cta {
             padding: 32px 20px;
         }
+        
+        .lang-name {
+            min-width: 60px;
+        }
+        
+        .lang-bar {
+            min-width: 100px;
+        }
+        
+        .lang-level {
+            min-width: 85px;
+            font-size: 0.8rem;
+        }
     }
     @media (max-width: 480px) {
         section {
@@ -1704,6 +1744,30 @@
         .hero-bg-svg {
             transform: scale(0.76) translateX(150px) translateY(-120px);
             opacity: 0.1;
+        }
+        
+        .lang-name {
+            min-width: 55px;
+            font-size: 0.9rem;
+        }
+        
+        .lang-bar {
+            min-width: 80px;
+            height: 5px;
+        }
+        
+        .lang-level {
+            min-width: 80px;
+            font-size: 0.75rem;
+        }
+        
+        .lang-item {
+            gap: 12px;
+            padding: 10px 0;
+        }
+        
+        .langs {
+            gap: 10px;
         }
     }
     </style>
