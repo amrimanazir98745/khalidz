@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Detail — Khalid Mohamed Zarook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Poppins:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            cursor: none;
+        }
+        /* Show default cursor on mobile */
+        
+        @media (max-width: 900px) {
+            * {
+                cursor: auto;
+            }
+        }
+        
+         :root {
+            --bg: #0a0f2e;
+            --bg2: #0f1844;
+            --cyan: #5eb3ff;
+            --purple: #4a90ff;
+            --blue: #1e7bff;
+            --text: #f0f5ff;
+            --muted: #8fa3c2;
+            --glass: rgba(94, 179, 255, 0.06);
+            --glass-border: rgba(94, 179, 255, 0.12);
+            --glow-cyan: 0 0 40px rgba(94, 179, 255, 0.28);
+            --glow-purple: 0 0 40px rgba(74, 144, 255, 0.25);
+            --gradient: linear-gradient(135deg, #5eb3ff, #4a90ff, #1e7bff);
+            --radius: 16px;
+            --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+         :root[data-theme="light"] {
+            --bg: #f2f6ff;
+            --bg2: #e8f1ff;
+            --cyan: #0052cc;
+            --purple: #1565ff;
+            --blue: #0033aa;
+            --text: #0a1629;
+            --muted: #4a6fa5;
+            --glass: rgba(30, 123, 255, 0.08);
+            --glass-border: rgba(30, 123, 255, 0.15);
+            --glow-cyan: 0 14px 40px rgba(0, 82, 204, 0.15);
+            --glow-purple: 0 14px 40px rgba(21, 101, 255, 0.15);
+            --gradient: linear-gradient(135deg, #0052cc, #1565ff, #0033aa);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        /* ─── GRID BACKGROUND ─── */
+        
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridDrift 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gridDrift {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 60px 60px;
+            }
+        }
+        /* ─── BLOBS ─── */
+        
+        .blobs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            animation: blobFloat 12s ease-in-out infinite alternate;
+        }
+        
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: #00e5ff;
+            top: -150px;
+            left: -200px;
+            animation-duration: 14s;
+        }
+        
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: #a855f7;
+            bottom: -100px;
+            right: -150px;
+            animation-duration: 10s;
+            animation-delay: -5s;
+        }
+        
+        .blob3 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            top: 40%;
+            left: 40%;
+            animation-duration: 16s;
+            animation-delay: -3s;
+        }
+        
+        @keyframes blobFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, 60px) scale(1.08);
+            }
+        }
+        /* ─── LAYOUT ─── */
+        
+        main {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        /* ─── NAV ─── */
+        
+        nav {
+            position: fixed;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1180px, calc(100% - 28px));
+            z-index: 100;
+            padding: 8px 0;
+            background: linear-gradient(135deg, rgba(10, 15, 46, 0.78), rgba(15, 24, 68, 0.62));
+            backdrop-filter: blur(3px) saturate(150%);
+            border: 1px solid rgba(94, 180, 255, 0.042);
+            border-radius: 999px;
+            transition: var(--transition);
+            box-shadow: 0 16px 45px rgba(5, 8, 22, 0.45), 0 0 0 1px rgba(94, 179, 255, 0.12) inset, 0 0 28px rgba(94, 179, 255, 0.12);
+            -webkit-backdrop-filter: blur(4px) saturate(180%);
+        }
+        
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 26px;
+            min-height: 56px;
+        }
+        
+        .nav-logo {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-logo img {
+            display: block;
+            height: 50px;
+            width: auto;
+            max-width: 210px;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+            overflow: hidden;
+            transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.12), rgba(74, 144, 255, 0.08), rgba(30, 123, 255, 0.1));
+            border: 1px solid rgba(94, 179, 255, 0.25);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            box-shadow: 0 0 20px rgba(94, 179, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            opacity: 0;
+            transform: scale(0.88);
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 50%, rgba(94, 179, 255, 0.25), rgba(74, 144, 255, 0.12), transparent);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: #5eb3ff;
+            outline: none;
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a:focus-visible::before {
+            opacity: 1;
+            transform: scale(1);
+            animation: navPremiumGlow 2.4s ease-in-out infinite;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after {
+            opacity: 1;
+            animation: navPremiumPulse 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+        
+        @keyframes navPremiumGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(94, 179, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                background: linear-gradient(135deg, rgba(94, 179, 255, 0.12), rgba(74, 144, 255, 0.08), rgba(30, 123, 255, 0.1));
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(94, 179, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                background: linear-gradient(135deg, rgba(94, 179, 255, 0.2), rgba(74, 144, 255, 0.15), rgba(30, 123, 255, 0.18));
+            }
+        }
+        
+        @keyframes navPremiumPulse {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.08);
+            }
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.4);
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        /* ─── CURSOR FOLLOW ─── */
+        
+        .cursor-follow {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0084ff;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.7s ease;
+            box-shadow: 0 0 8px rgba(255, 45, 117, 0.4);
+        }
+        
+        .cursor-ring {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(147, 51, 234, 0.6);
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+        
+        .cursor-follow.active,
+        .cursor-ring.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Hide custom cursor on mobile */
+        
+        @media (max-width: 900px) {
+            .cursor-follow,
+            .cursor-ring {
+                display: none !important;
+                opacity: 0 !important;
+            }
+        }
+        /* ─── FOOTER ─── */
+        
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        footer span {
+            color: var(--cyan);
+        }
+        /* ─── COMPANY DETAIL PAGE STYLES ─── */
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            gap: 12px;
+        }
+        
+        .back-button svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-button:hover svg {
+            transform: translateX(-4px);
+        }
+        
+        .company-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+        
+        .company-info-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+        
+        .company-title-block h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        
+        .company-title-block p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .company-meta {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .meta-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
+        }
+        
+        .meta-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--cyan);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .meta-item p {
+            font-size: 1.2rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+        /* ─── GALLERY SLIDER ─── */
+        
+        .gallery-section {
+            margin-bottom: 80px;
+        }
+        
+        .gallery-section h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: var(--text);
+        }
+        
+        .slider-container {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.1), rgba(74, 144, 255, 0.05));
+            border: 1px solid var(--glass-border);
+        }
+        
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+        
+        .slider-wrapper img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        
+        .slider-wrapper img.active {
+            opacity: 1;
+        }
+        
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.08), rgba(74, 144, 255, 0.04));
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .slider-nav {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .slider-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.15), rgba(74, 144, 255, 0.1));
+            border: 1px solid rgba(94, 179, 255, 0.25);
+            color: var(--cyan);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .slider-btn:hover {
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.25), rgba(74, 144, 255, 0.15));
+            border-color: rgba(94, 179, 255, 0.4);
+            box-shadow: 0 0 20px rgba(94, 179, 255, 0.2);
+        }
+        
+        .slider-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .slider-counter {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        
+        .slider-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(94, 179, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: var(--cyan);
+            width: 24px;
+            border-radius: 999px;
+        }
+        /* ─── THUMBNAILS GRID ─── */
+        
+        .thumbnails-section {
+            margin-bottom: 80px;
+        }
+        
+        .thumbnails-section h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: var(--text);
+        }
+        
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        
+        .thumbnail-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            group: item;
+        }
+        
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .thumbnail-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.1), rgba(74, 144, 255, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .thumbnail-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .thumbnail-item:hover::before {
+            opacity: 1;
+            border-color: rgba(94, 179, 255, 0.4);
+            box-shadow: 0 0 30px rgba(94, 179, 255, 0.2), inset 0 0 20px rgba(94, 179, 255, 0.1);
+        }
+        /* ─── RESPONSIVE ─── */
+        
+        @media (max-width: 900px) {
+            nav {
+                top: 10px;
+                width: calc(100% - 20px);
+                padding: 8px 0;
+                border-radius: 40px;
+            }
+            .nav-logo img {
+                height: 46px;
+                max-width: 175px;
+            }
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav.open .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 12px;
+                right: 12px;
+                background: linear-gradient(135deg, rgba(10, 15, 46, 0.95), rgba(15, 24, 68, 0.92));
+                backdrop-filter: blur(70px);
+                -webkit-backdrop-filter: blur(70px);
+                padding: 28px;
+                gap: 12px;
+                border: 1px solid rgba(94, 179, 255, 0.3);
+                border-radius: 24px;
+                box-shadow: 0 20px 60px rgba(0, 229, 255, 0.1), 0 0 0 1px rgba(94, 179, 255, 0.15) inset;
+                z-index: 101;
+            }
+            nav.open .nav-links li {
+                animation: slideInMenu 0.4s ease-out forwards;
+                opacity: 0;
+            }
+            nav.open .nav-links li:nth-child(1) {
+                animation-delay: 0.05s;
+            }
+            nav.open .nav-links li:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+            nav.open .nav-links li:nth-child(3) {
+                animation-delay: 0.15s;
+            }
+            nav.open .nav-links li:nth-child(4) {
+                animation-delay: 0.2s;
+            }
+            nav.open .nav-links li:nth-child(5) {
+                animation-delay: 0.25s;
+            }
+            nav.open .nav-links li:nth-child(6) {
+                animation-delay: 0.3s;
+            }
+            @keyframes slideInMenu {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            nav.open .nav-links a {
+                padding: 12px 18px;
+                border-radius: 12px;
+                background: rgba(94, 179, 255, 0.08);
+                border: 1px solid rgba(94, 179, 255, 0.2);
+                transition: all 0.3s ease;
+                color: var(--text);
+                font-size: 0.95rem;
+                font-weight: 500;
+            }
+            nav.open .nav-links a:hover {
+                background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(168, 85, 247, 0.1));
+                border-color: rgba(0, 229, 255, 0.4);
+                color: #00e5ff;
+                transform: translateX(8px);
+                box-shadow: 0 8px 20px rgba(0, 229, 255, 0.15);
+            }
+            .company-header {
+                padding-top: 100px;
+            }
+            .company-info-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .company-title-block h1 {
+                font-size: clamp(2rem, 4vw, 2.8rem);
+            }
+            .slider-wrapper {
+                height: 350px;
+            }
+            .thumbnails-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav {
+                top: 8px;
+                width: calc(100% - 14px);
+                border-radius: 35px;
+            }
+            .nav-logo img {
+                height: 42px;
+                max-width: 160px;
+            }
+            .company-title-block h1 {
+                font-size: 1.8rem;
+            }
+            .slider-wrapper {
+                height: 280px;
+            }
+            .thumbnails-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .slider-counter {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-bg"></div>
+    <div class="blobs">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    <div class="cursor-follow" id="cursorFollow"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="Assets/Logo.svg" alt="Khalid Zarook logo">
+            </a>
+            <div class="nav-controls">
+                <ul class="nav-links">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#resume">Resume</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <a href="index.html#contact" class="nav-cta">Hire Me</a>
+                <div class="hamburger" id="ham" onclick="toggleNav()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="company-header">
+            <div class="container">
+                <a href="branding.html" class="back-button" id="backBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg> Back to Portfolio
+                </a>
+
+                <!-- COMPANY INFO -->
+                <div class="company-info-section">
+                    <div class="company-title-block">
+                        <h1 id="companyName">TechFlow Design</h1>
+                        <p id="companyDescription">A cutting-edge technology company with a fresh, modern brand identity focused on innovation and user experience.</p>
+                    </div>
+                    <div class="company-meta">
+                        <div class="meta-item">
+                            <h4>Year</h4>
+                            <p id="companyYear">2024</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Industry</h4>
+                            <p id="companyIndustry">Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SLIDER -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2>Branding Showcase</h2>
+                <div class="slider-container">
+                    <div class="slider-wrapper" id="sliderWrapper">
+                        <!-- Images will be inserted here -->
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-nav">
+                            <button class="slider-btn" id="prevBtn" onclick="prevSlide()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 19l-7-7 7-7"/>
+                                </svg>
+                            </button>
+                            <button class="slider-btn" id="nextBtn" onclick="nextSlide()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="slider-dots" id="sliderDots">
+                            <!-- Dots will be inserted here -->
+                        </div>
+                        <div class="slider-counter">
+                            <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THUMBNAILS GRID -->
+        <section class="thumbnails-section">
+            <div class="container">
+                <h2>Visual Identity</h2>
+                <div class="thumbnails-grid" id="thumbnailsGrid">
+                    <!-- Thumbnails will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 <span>Khalid Zarook.</span> All rights reserved</p>
+    </footer>
+
+    <script>
+        // ─── THEME (Dark mode by default)
+        const themeRoot = document.documentElement;
+        themeRoot.setAttribute('data-theme', 'dark');
+
+        // ─── NAV TOGGLE
+        function toggleNav() {
+            document.getElementById('navbar').classList.toggle('open');
+        }
+
+        // ─── NAV BACKGROUND
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                nav.style.background = 'rgba(5,8,22,0.95)';
+            } else {
+                nav.style.background = 'rgba(5,8,22,0.7)';
+            }
+        });
+
+        // ─── CLOSE NAV ON LINK CLICK
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('open');
+            });
+        });
+
+        // ─── PREMIUM DUAL-LAYER CURSOR
+        const cursorFollow = document.getElementById('cursorFollow');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0,
+            mouseY = 0;
+        let dotX = 0,
+            dotY = 0;
+        let ringX = 0,
+            ringY = 0;
+        const easing = 0.12;
+        let isActive = false;
+        let cursorTimeout;
+
+        // Check if mobile view
+        function isMobileView() {
+            return window.innerWidth <= 900;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!isActive) {
+                isActive = true;
+                cursorFollow.classList.add('active');
+                cursorRing.classList.add('active');
+            }
+
+            // Auto-hide cursor on mobile after 0.7 seconds
+            if (isMobileView()) {
+                clearTimeout(cursorTimeout);
+                cursorTimeout = setTimeout(() => {
+                    if (isActive) {
+                        isActive = false;
+                        cursorFollow.classList.remove('active');
+                        cursorRing.classList.remove('active');
+                    }
+                }, 700);
+            }
+        });
+
+        document.addEventListener('click', () => {
+            // Auto-hide on click for mobile
+            if (isMobileView()) {
+                isActive = false;
+                cursorFollow.classList.remove('active');
+                cursorRing.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            isActive = false;
+            cursorFollow.classList.remove('active');
+            cursorRing.classList.remove('active');
+            clearTimeout(cursorTimeout);
+        });
+
+        function animateCursor() {
+            // Center dot follows instantly (or very quickly)
+            dotX = mouseX;
+            dotY = mouseY;
+            cursorFollow.style.left = (dotX - 6) + 'px';
+            cursorFollow.style.top = (dotY - 6) + 'px';
+
+            // Ring follows with easing/lag
+            ringX += (mouseX - ringX) * easing;
+            ringY += (mouseY - ringY) * easing;
+            cursorRing.style.left = (ringX - 16) + 'px';
+            cursorRing.style.top = (ringY - 16) + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // ─── COMPANY DATA ─── 
+        const companiesData = {
+            1: {
+                name: 'TechFlow Design',
+                year: '2024',
+                industry: 'Technology',
+                description: 'A cutting-edge technology company with a fresh, modern brand identity focused on innovation and user experience.',
+                galleryImages: [
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=1000&h=600&fit=crop'
+                ],
+                thumbnailImages: [
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop'
+                ]
+            },
+            2: {
+                name: 'Luna Creative',
+                year: '2023',
+                industry: 'Creative Agency',
+                description: 'Creative agency specializing in innovative visual solutions and brand storytelling for forward-thinking companies.',
+                galleryImages: [
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop'
+                ],
+                thumbnailImages: [
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop'
+                ]
+            },
+            3: {
+                name: 'Zenith Digital',
+                year: '2024',
+                industry: 'Digital Solutions',
+                description: 'Digital transformation company with premium brand standards and cutting-edge design principles.',
+                galleryImages: [
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop'
+                ],
+                thumbnailImages: [
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop'
+                ]
+            },
+            4: {
+                name: 'Aurora Studios',
+                year: '2023',
+                industry: 'Design Studio',
+                description: 'Full-service design studio with contemporary branding approach and emphasis on visual excellence.',
+                galleryImages: [
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&h=600&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=1000&h=600&fit=crop'
+                ],
+                thumbnailImages: [
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1540221652346-e5dd6867795c?w=400&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop'
+                ]
+            }
+        };
+
+        let currentSlide = 0;
+        let slides = [];
+        let companyId = 1;
+
+        // ─── GET COMPANY ID FROM URL ─── 
+        function getCompanyId() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id')) || 1;
+        }
+
+        // ─── INITIALIZE PAGE ─── 
+        function initPage() {
+            companyId = getCompanyId();
+            const company = companiesData[companyId];
+
+            if (!company) {
+                window.location.href = 'branding.html';
+                return;
+            }
+
+            // Set company info
+            document.getElementById('companyName').textContent = company.name;
+            document.getElementById('companyYear').textContent = company.year;
+            document.getElementById('companyIndustry').textContent = company.industry;
+            document.getElementById('companyDescription').textContent = company.description;
+
+            // Initialize slider
+            slides = company.galleryImages;
+            renderSlider();
+            renderThumbnails(company.thumbnailImages);
+            updateSlide(0);
+        }
+
+        // ─── RENDER SLIDER ─── 
+        function renderSlider() {
+            const wrapper = document.getElementById('sliderWrapper');
+            wrapper.innerHTML = slides.map((img, idx) =>
+                `<img src="${img}" alt="Gallery ${idx + 1}" class="${idx === 0 ? 'active' : ''}">`
+            ).join('');
+
+            // Render dots
+            const dots = document.getElementById('sliderDots');
+            dots.innerHTML = slides.map((_, idx) =>
+                `<div class="dot ${idx === 0 ? 'active' : ''}" onclick="updateSlide(${idx})"></div>`
+            ).join('');
+
+            document.getElementById('totalSlides').textContent = slides.length;
+        }
+
+        // ─── RENDER THUMBNAILS ─── 
+        function renderThumbnails(images) {
+            const grid = document.getElementById('thumbnailsGrid');
+            grid.innerHTML = images.map(img =>
+                `<div class="thumbnail-item"><img src="${img}" alt="Thumbnail" onclick="alert('Click to view full size')"></div>`
+            ).join('');
+        }
+
+        // ─── UPDATE SLIDE ─── 
+        function updateSlide(idx) {
+            currentSlide = idx;
+            const images = document.querySelectorAll('#sliderWrapper img');
+            const dots = document.querySelectorAll('.dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            images[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+        }
+
+        // ─── SLIDER CONTROLS ─── 
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide(currentSlide);
+        }
+
+        // ─── KEYBOARD CONTROLS ─── 
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // ─── INIT ON LOAD ─── 
+        initPage();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Portfolio — Khalid Mohamed Zarook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Poppins:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            cursor: none;
+        }
+        /* Show default cursor on mobile */
+        
+        @media (max-width: 900px) {
+            * {
+                cursor: auto;
+            }
+        }
+        
+         :root {
+            --bg: #0a0f2e;
+            --bg2: #0f1844;
+            --cyan: #5eb3ff;
+            --purple: #4a90ff;
+            --blue: #1e7bff;
+            --text: #f0f5ff;
+            --muted: #8fa3c2;
+            --glass: rgba(94, 179, 255, 0.06);
+            --glass-border: rgba(94, 179, 255, 0.12);
+            --glow-cyan: 0 0 40px rgba(94, 179, 255, 0.28);
+            --glow-purple: 0 0 40px rgba(74, 144, 255, 0.25);
+            --gradient: linear-gradient(135deg, #5eb3ff, #4a90ff, #1e7bff);
+            --radius: 16px;
+            --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+         :root[data-theme="light"] {
+            --bg: #f2f6ff;
+            --bg2: #e8f1ff;
+            --cyan: #0052cc;
+            --purple: #1565ff;
+            --blue: #0033aa;
+            --text: #0a1629;
+            --muted: #4a6fa5;
+            --glass: rgba(30, 123, 255, 0.08);
+            --glass-border: rgba(30, 123, 255, 0.15);
+            --glow-cyan: 0 14px 40px rgba(0, 82, 204, 0.15);
+            --glow-purple: 0 14px 40px rgba(21, 101, 255, 0.15);
+            --gradient: linear-gradient(135deg, #0052cc, #1565ff, #0033aa);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        /* ─── GRID BACKGROUND ─── */
+        
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridDrift 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gridDrift {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 60px 60px;
+            }
+        }
+        /* ─── BLOBS ─── */
+        
+        .blobs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            animation: blobFloat 12s ease-in-out infinite alternate;
+        }
+        
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: #00e5ff;
+            top: -150px;
+            left: -200px;
+            animation-duration: 14s;
+        }
+        
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: #a855f7;
+            bottom: -100px;
+            right: -150px;
+            animation-duration: 10s;
+            animation-delay: -5s;
+        }
+        
+        .blob3 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            top: 40%;
+            left: 40%;
+            animation-duration: 16s;
+            animation-delay: -3s;
+        }
+        
+        @keyframes blobFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, 60px) scale(1.08);
+            }
+        }
+        /* ─── LAYOUT ─── */
+        
+        main {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        /* ─── NAV ─── */
+        
+        nav {
+            position: fixed;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1180px, calc(100% - 28px));
+            z-index: 100;
+            padding: 8px 0;
+            background: linear-gradient(135deg, rgba(10, 15, 46, 0.78), rgba(15, 24, 68, 0.62));
+            backdrop-filter: blur(3px) saturate(150%);
+            border: 1px solid rgba(94, 180, 255, 0.042);
+            border-radius: 999px;
+            transition: var(--transition);
+            box-shadow: 0 16px 45px rgba(5, 8, 22, 0.45), 0 0 0 1px rgba(94, 179, 255, 0.12) inset, 0 0 28px rgba(94, 179, 255, 0.12);
+            -webkit-backdrop-filter: blur(4px) saturate(180%);
+        }
+        
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 26px;
+            min-height: 56px;
+        }
+        
+        .nav-logo {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-logo img {
+            display: block;
+            height: 50px;
+            width: auto;
+            max-width: 210px;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+            overflow: hidden;
+            transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.12), rgba(74, 144, 255, 0.08), rgba(30, 123, 255, 0.1));
+            border: 1px solid rgba(94, 179, 255, 0.25);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            box-shadow: 0 0 20px rgba(94, 179, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            opacity: 0;
+            transform: scale(0.88);
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 50%, rgba(94, 179, 255, 0.25), rgba(74, 144, 255, 0.12), transparent);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: #5eb3ff;
+            outline: none;
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a:focus-visible::before {
+            opacity: 1;
+            transform: scale(1);
+            animation: navPremiumGlow 2.4s ease-in-out infinite;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after {
+            opacity: 1;
+            animation: navPremiumPulse 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+        
+        @keyframes navPremiumGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(94, 179, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                background: linear-gradient(135deg, rgba(94, 179, 255, 0.12), rgba(74, 144, 255, 0.08), rgba(30, 123, 255, 0.1));
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(94, 179, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                background: linear-gradient(135deg, rgba(94, 179, 255, 0.2), rgba(74, 144, 255, 0.15), rgba(30, 123, 255, 0.18));
+            }
+        }
+        
+        @keyframes navPremiumPulse {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.08);
+            }
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.4);
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        /* ─── CURSOR FOLLOW ─── */
+        
+        .cursor-follow {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0084ff;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.7s ease;
+            box-shadow: 0 0 8px rgba(255, 45, 117, 0.4);
+        }
+        
+        .cursor-ring {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(147, 51, 234, 0.6);
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+        
+        .cursor-follow.active,
+        .cursor-ring.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Hide custom cursor on mobile */
+        
+        @media (max-width: 900px) {
+            .cursor-follow,
+            .cursor-ring {
+                display: none !important;
+                opacity: 0 !important;
+            }
+        }
+        /* ─── FOOTER ─── */
+        
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        footer span {
+            color: var(--cyan);
+        }
+        /* ─── BRANDING PAGE STYLES ─── */
+        
+        .branding-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        
+        .branding-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        
+        .branding-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+            padding: 60px 0;
+        }
+        
+        .company-card {
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.08), rgba(74, 144, 255, 0.04));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            backdrop-filter: blur(10px) saturate(1.5);
+        }
+        
+        .company-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(94, 179, 255, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition);
+            pointer-events: none;
+        }
+        
+        .company-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(94, 179, 255, 0.05));
+            opacity: 0;
+            transition: opacity var(--transition);
+            pointer-events: none;
+        }
+        
+        .company-card:hover {
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.12), rgba(74, 144, 255, 0.08));
+            border-color: rgba(94, 179, 255, 0.25);
+            box-shadow: 0 0 40px rgba(94, 179, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+        }
+        
+        .company-card:hover::before {
+            opacity: 1;
+        }
+        
+        .company-card:hover::after {
+            opacity: 1;
+        }
+        
+        .company-thumbnail {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(94, 179, 255, 0.1), rgba(74, 144, 255, 0.05));
+            border: 1px solid rgba(94, 179, 255, 0.15);
+            object-fit: cover;
+            overflow: hidden;
+        }
+        
+        .company-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .company-info h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .company-info p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        
+        .company-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(94, 179, 255, 0.1);
+            border: 1px solid rgba(94, 179, 255, 0.2);
+            color: var(--cyan);
+            font-weight: 500;
+        }
+        
+        .view-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .view-details svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .company-card:hover .view-details {
+            gap: 12px;
+        }
+        
+        .company-card:hover .view-details svg {
+            transform: translateX(4px);
+        }
+        /* ─── RESPONSIVE ─── */
+        
+        @media (max-width: 900px) {
+            nav {
+                top: 10px;
+                width: calc(100% - 20px);
+                padding: 8px 0;
+                border-radius: 40px;
+            }
+            .nav-logo img {
+                height: 46px;
+                max-width: 175px;
+            }
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav.open .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 12px;
+                right: 12px;
+                background: linear-gradient(135deg, rgba(10, 15, 46, 0.95), rgba(15, 24, 68, 0.92));
+                backdrop-filter: blur(70px);
+                -webkit-backdrop-filter: blur(70px);
+                padding: 28px;
+                gap: 12px;
+                border: 1px solid rgba(94, 179, 255, 0.3);
+                border-radius: 24px;
+                box-shadow: 0 20px 60px rgba(0, 229, 255, 0.1), 0 0 0 1px rgba(94, 179, 255, 0.15) inset;
+                z-index: 101;
+            }
+            nav.open .nav-links li {
+                animation: slideInMenu 0.4s ease-out forwards;
+                opacity: 0;
+            }
+            nav.open .nav-links li:nth-child(1) {
+                animation-delay: 0.05s;
+            }
+            nav.open .nav-links li:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+            nav.open .nav-links li:nth-child(3) {
+                animation-delay: 0.15s;
+            }
+            nav.open .nav-links li:nth-child(4) {
+                animation-delay: 0.2s;
+            }
+            nav.open .nav-links li:nth-child(5) {
+                animation-delay: 0.25s;
+            }
+            nav.open .nav-links li:nth-child(6) {
+                animation-delay: 0.3s;
+            }
+            @keyframes slideInMenu {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            nav.open .nav-links a {
+                padding: 12px 18px;
+                border-radius: 12px;
+                background: rgba(94, 179, 255, 0.08);
+                border: 1px solid rgba(94, 179, 255, 0.2);
+                transition: all 0.3s ease;
+                color: var(--text);
+                font-size: 0.95rem;
+                font-weight: 500;
+            }
+            nav.open .nav-links a:hover {
+                background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(168, 85, 247, 0.1));
+                border-color: rgba(0, 229, 255, 0.4);
+                color: #00e5ff;
+                transform: translateX(8px);
+                box-shadow: 0 8px 20px rgba(0, 229, 255, 0.15);
+            }
+            .branding-header h1 {
+                font-size: clamp(2rem, 4vw, 2.8rem);
+            }
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav {
+                top: 8px;
+                width: calc(100% - 14px);
+                border-radius: 35px;
+            }
+            .nav-logo img {
+                height: 42px;
+                max-width: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-bg"></div>
+    <div class="blobs">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    <div class="cursor-follow" id="cursorFollow"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="Assets/Logo.svg" alt="Khalid Zarook logo">
+            </a>
+            <div class="nav-controls">
+                <ul class="nav-links">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#resume">Resume</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <a href="index.html#contact" class="nav-cta">Hire Me</a>
+                <div class="hamburger" id="ham" onclick="toggleNav()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- BRANDING HEADER -->
+        <section class="branding-header">
+            <div class="container">
+                <h1>Branding Portfolio</h1>
+                <p>Explore our collection of premium brand identities and visual design work</p>
+            </div>
+        </section>
+
+        <!-- COMPANIES GRID -->
+        <section class="companies-section">
+            <div class="container">
+                <div class="companies-grid" id="companiesGrid">
+                    <!-- Companies will be populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 <span>Khalid Zarook.</span> All rights reserved</p>
+    </footer>
+
+    <script>
+        // ─── THEME (Dark mode by default)
+        const themeRoot = document.documentElement;
+        themeRoot.setAttribute('data-theme', 'dark');
+
+        // ─── NAV TOGGLE
+        function toggleNav() {
+            document.getElementById('navbar').classList.toggle('open');
+        }
+
+        // ─── NAV BACKGROUND
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                nav.style.background = 'rgba(5,8,22,0.95)';
+            } else {
+                nav.style.background = 'rgba(5,8,22,0.7)';
+            }
+        });
+
+        // ─── CLOSE NAV ON LINK CLICK
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('open');
+            });
+        });
+
+        // ─── PREMIUM DUAL-LAYER CURSOR
+        const cursorFollow = document.getElementById('cursorFollow');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0,
+            mouseY = 0;
+        let dotX = 0,
+            dotY = 0;
+        let ringX = 0,
+            ringY = 0;
+        const easing = 0.12;
+        let isActive = false;
+        let cursorTimeout;
+
+        // Check if mobile view
+        function isMobileView() {
+            return window.innerWidth <= 900;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!isActive) {
+                isActive = true;
+                cursorFollow.classList.add('active');
+                cursorRing.classList.add('active');
+            }
+
+            // Auto-hide cursor on mobile after 0.7 seconds
+            if (isMobileView()) {
+                clearTimeout(cursorTimeout);
+                cursorTimeout = setTimeout(() => {
+                    if (isActive) {
+                        isActive = false;
+                        cursorFollow.classList.remove('active');
+                        cursorRing.classList.remove('active');
+                    }
+                }, 700);
+            }
+        });
+
+        document.addEventListener('click', () => {
+            // Auto-hide on click for mobile
+            if (isMobileView()) {
+                isActive = false;
+                cursorFollow.classList.remove('active');
+                cursorRing.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            isActive = false;
+            cursorFollow.classList.remove('active');
+            cursorRing.classList.remove('active');
+            clearTimeout(cursorTimeout);
+        });
+
+        function animateCursor() {
+            // Center dot follows instantly (or very quickly)
+            dotX = mouseX;
+            dotY = mouseY;
+            cursorFollow.style.left = (dotX - 6) + 'px';
+            cursorFollow.style.top = (dotY - 6) + 'px';
+
+            // Ring follows with easing/lag
+            ringX += (mouseX - ringX) * easing;
+            ringY += (mouseY - ringY) * easing;
+            cursorRing.style.left = (ringX - 16) + 'px';
+            cursorRing.style.top = (ringY - 16) + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // ─── COMPANIES DATA ─── 
+        const companies = [{
+            id: 1,
+            name: 'TechFlow Design',
+            thumbnail: 'https://images.unsplash.com/photo-1551434494-5fde647ad757?w=400&h=300&fit=crop',
+            tags: ['Tech', 'Modern', 'UI Design'],
+            description: 'A cutting-edge technology company with a fresh, modern brand identity'
+        }, {
+            id: 2,
+            name: 'Luna Creative',
+            thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop',
+            tags: ['Creative', 'Branding', 'Design'],
+            description: 'Creative agency specializing in innovative visual solutions'
+        }, {
+            id: 3,
+            name: 'Zenith Digital',
+            thumbnail: 'https://images.unsplash.com/photo-1561092917-47c76a49a6d6?w=400&h=300&fit=crop',
+            tags: ['Digital', 'Tech', 'Innovation'],
+            description: 'Digital transformation company with premium brand standards'
+        }, {
+            id: 4,
+            name: 'Aurora Studios',
+            thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+            tags: ['Studio', 'Design', 'Creative'],
+            description: 'Full-service design studio with contemporary branding approach'
+        }];
+
+        // ─── RENDER COMPANIES ─── 
+        function renderCompanies() {
+            const grid = document.getElementById('companiesGrid');
+            grid.innerHTML = companies.map(company => `
+                <div class="company-card" onclick="goToDetail(${company.id})">
+                    <div class="company-thumbnail">
+                        <img src="${company.thumbnail}" alt="${company.name}">
+                    </div>
+                    <div class="company-info">
+                        <h3>${company.name}</h3>
+                        <p>${company.description}</p>
+                    </div>
+                    <div class="company-tags">
+                        ${company.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="view-details">
+                        View Details
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ─── NAVIGATE TO DETAIL PAGE ─── 
+        function goToDetail(companyId) {
+            window.location.href = `company-detail.html?id=${companyId}`;
+        }
+
+        // ─── INIT ─── 
+        renderCompanies();
+    </script>
+</body>
+
+</html>
