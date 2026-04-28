@@ -1128,7 +1128,7 @@
     /* ─── PROJECTS ─── */
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 22px;
         justify-items: center;
         align-items: center;
@@ -1162,6 +1162,12 @@
     .project-thumb svg {
         opacity: 0.4;
     }
+    .project-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
     .project-overlay {
         position: absolute;
         inset: 0;
@@ -1186,17 +1192,34 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
         margin-bottom: 8px;
+        display: none;
     }
     .project-name {
         font-family: 'Sora', sans-serif;
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin-bottom: 8px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 0px;
+        color: var(--cyan);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .project-name::after {
+        content: '↗';
+        font-size: 1.2rem;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+    .project-card:hover .project-name::after {
+        opacity: 1;
+        transform: translateX(4px) translateY(-4px);
     }
     .project-desc {
         font-size: 0.83rem;
         color: var(--muted);
         line-height: 1.6;
+        display: none;
     }
     /* ─── CONTACT ─── */
     #contact {
@@ -1458,7 +1481,7 @@
     /* ─── RESPONSIVE ─── */
     @media (min-width: 901px) {
         .projects-grid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             justify-items: center;
             align-items: center;
             margin: 0 auto;
@@ -2310,81 +2333,87 @@
                 </div>
                 <div class="projects-grid">
 
-                    <div class="project-card reveal">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(168,85,247,0.12));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="1" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                            <div class="project-overlay">
-                                <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span>
+                    <a href="branding.html" style="text-decoration:none; color:inherit;">
+                        <div class="project-card reveal">
+                            <div class="project-thumb">
+                                <img src="Assets\img\Branding\Thumnail.jpg" alt="Restaurant Branding">
+                                <div class="project-overlay">
+                                    <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">
+                    View Project
+                </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-tag">Brand Identity</div>
+                                <div class="project-name">BRANDING</div>
+                                <div class="project-desc">
+                                    Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.
+                                </div>
                             </div>
                         </div>
-                        <div class="project-body">
-                            <div class="project-tag">Brand Identity</div>
-                            <div class="project-name">Restaurant Branding</div>
-                            <div class="project-desc">Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.</div>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="project-card reveal">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(168,85,247,0.12));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="1" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                            <div class="project-overlay">
-                                <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span>
+                    <a href="branding.html" style="text-decoration:none; color:inherit;">
+                        <div class="project-card reveal">
+                            <div class="project-thumb">
+                                <img src="Assets\img\Logo\Thumnail.jpg?w=400&h=250&fit=crop" alt="Restaurant Branding">
+                                <div class="project-overlay">
+                                    <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">
+                    View Project
+                </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-tag">Brand Identity</div>
+                                <div class="project-name">BRANDING</div>
+                                <div class="project-desc">
+                                    Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.
+                                </div>
                             </div>
                         </div>
-                        <div class="project-body">
-                            <div class="project-tag">Brand Identity</div>
-                            <div class="project-name">Restaurant Branding</div>
-                            <div class="project-desc">Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.</div>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="project-card reveal reveal-delay-1">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(59,130,246,0.1));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(168,85,247,0.3)" stroke-width="1" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                            <div class="project-overlay"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span></div>
+                    <a href="branding.html" style="text-decoration:none; color:inherit;">
+                        <div class="project-card reveal">
+                            <div class="project-thumb">
+                                <img src="Assets\img\Poster\Thumnail.jpg" alt="Restaurant Branding">
+                                <div class="project-overlay">
+                                    <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">
+                    View Project
+                </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-tag">Brand Identity</div>
+                                <div class="project-name">BRANDING</div>
+                                <div class="project-desc">
+                                    Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-body">
-                            <div class="project-tag">Social Media</div>
-                            <div class="project-name">Social Media Campaign</div>
-                            <div class="project-desc">Multi-platform content campaign with 30+ post designs and animated stories driving engagement.</div>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="project-card reveal reveal-delay-2">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(0,229,255,0.08));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                            <div class="project-overlay"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span></div>
+                    <a href="branding.html" style="text-decoration:none; color:inherit;">
+                        <div class="project-card reveal">
+                            <div class="project-thumb">
+                                <img src="Assets\img\Others\Thumnail.jpg" alt="Branding">
+                                <div class="project-overlay">
+                                    <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">
+                    View Project
+                </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-tag">Brand Identity</div>
+                                <div class="project-name">BRANDING</div>
+                                <div class="project-desc">
+                                    Complete visual identity for a GCC restaurant — logo, menu, packaging, and signage in Arabic & English.
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-body">
-                            <div class="project-tag">Motion Design</div>
-                            <div class="project-name">Motion Graphics Pack</div>
-                            <div class="project-desc">Animated intro sequences, transitions, and lower thirds for a media brand.</div>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="project-card reveal">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(0,229,255,0.06),rgba(168,85,247,0.1));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(0,229,255,0.25)" stroke-width="1" viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/><path d="M8 5v14M16 5v14" stroke-dasharray="3 3"/></svg>
-                            <div class="project-overlay"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span></div>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-tag">Bilingual Design</div>
-                            <div class="project-name">Arabic–English Branding</div>
-                            <div class="project-desc">Culturally sensitive bilingual identity system for a Qatar-based e-commerce brand.</div>
-                        </div>
-                    </div>
 
-                    <div class="project-card reveal reveal-delay-1">
-                        <div class="project-thumb" style="background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(59,130,246,0.12));">
-                            <svg width="64" height="64" fill="none" stroke="rgba(168,85,247,0.3)" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                            <div class="project-overlay"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">View Project</span></div>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-tag">Web Design</div>
-                            <div class="project-name">WordPress Landing Page</div>
-                            <div class="project-desc">High-converting landing page built with Elementor for a real estate client in Doha.</div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
